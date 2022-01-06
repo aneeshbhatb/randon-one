@@ -59,11 +59,9 @@
     // Catch global exception. Only used to validate browser support for ReactJS.
     window.addEventListener('error', handleSyntaxErrorEvent);
     function handleSyntaxErrorEvent(e) {
-      if (e && e.message == "Syntax error") {
-          console.error("Browser not supported.");
-          document.getElementById("root").style.display = "none";
-          document.getElementById("unsupported-browser").style.display = "flex";
-      }
+      console.error("Browser not supported.");
+      document.getElementById("root").style.display = "none";
+      document.getElementById("unsupported-browser").style.display = "flex";
     }
   </script>
   <script>
@@ -71,7 +69,15 @@
     // Raises an exception when if there is any syntax error.
     // The exception will be caught by above error event listener.
     const validateBrowser = () => {
-      return "success";
+      // run different new JS feature test:
+      // arrow functions, spread operator and forEach method and 
+      // let keyword are not supported in older browsers.
+      let statusStr = "";
+      let testArr = [+ new Date()];
+      [1, ...testArr].forEach(item => {
+        statusStr = "success";
+      });
+      return statusStr;
     }
     if (validateBrowser() === "success") {
       // Remove globel error event listener if all browser tests passed.
