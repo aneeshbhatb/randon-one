@@ -1,0 +1,25 @@
+.unsupported-browser-header {
+  font-size: 2em;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: #3c3c3c;
+}
+.error-container {
+  width: 100vw;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  background: #f8f8f8;
+  align-items: center;
+  justify-content: center;
+}
+.browser-img {
+  height: 75px;
+  width: 75px;
+}
+.supported-browser {
+  width: 75%;
+  margin: 0 auto;
+}

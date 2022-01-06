@@ -1,0 +1,8 @@
+@font-face {
+  font-family: SC Prosper Sans Variable;
+  font-style: normal;
+  font-weight: 100 1000;
+  src: url(./fonts/30563f1cbbe92c164a04.30563f1c.woff2) format("woff2"),
+    url(./fonts/00aa6f486bfcc8daf676.00aa6f48.woff) format("woff"),
+    url(./fonts/dc0d3a38f78f195a5e22.dc0d3a38.ttf) format("truetype");
+}

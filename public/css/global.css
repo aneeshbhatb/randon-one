@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+  font-family: "SC Prosper Sans Variable", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.flex {
+  display: flex;
+}
+.fx-column {
+  flex-direction: column;
+}
+.fx-row {
+  flex-direction: row;
+}
+.fx-justify-sb {
+  justify-content: space-between;
+}
+.fx-justify-center {
+  justify-content: center;
+}
+.fx-align-center {
+  align-items: center;
+}
+.text-center {
+  text-align: center;
+}
+.mb-15 {
+  margin-bottom: 15px;
+}
+.mb-40 {
+  margin-bottom: 40px;
+}
+.sub-text {
+  font-size: 1.2em;
+  color: #8d8d8d;
+  font-weight: 500;
+  text-align: center;
+}
+.img-bg {
+  background-image: url("/images/christoph-peich-fWDXz_EpEZ0-unsplash.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position-y: center;
+}

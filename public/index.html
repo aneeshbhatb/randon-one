@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Show one random picture from Unsplash. Check if ReactJS works on your browser or not."
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/ani-me.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/fonts/sc/sc.css" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/css/global.css" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/css/browser-support.css" />
+    <title>One</title>
+  </head>
+  <body>
+    <noscript>
+      You need to enable javascript.
+    </noscript>
+    <div id="unsupported-browser" style="display:none;" class="error-container">
+        <div class="m-auto">
+            <div class="unsupported-browser-header mb-15">
+                You are using a browser that is not supported
+            </div>
+            <div class="sub-text text-center mb-40">
+                Please use one of the following browsers to ensure an optimum
+                <br />
+                Online Banking experience.
+            </div>
+            <div class="supported-browser flex fx-justify-sb fx-align-center">
+                <div class="flex fx-column fx-justify-center fx-align-center">
+                    <img class="browser-img" src="/images/safari.svg" alt="Safari"></img>
+                    <p class="sub-text">Safari</p>
+                </div>
+
+                <div class="flex fx-column fx-justify-center fx-align-center">
+                    <img class="browser-img" src="/images/chrome.svg" alt="Chrome"></img>
+                    <p class="sub-text">Chrome</p>
+                </div>
+
+                <div class="flex fx-column fx-justify-center fx-align-center">
+                    <img class="browser-img" src="/images/firefox.svg" alt="Firefox"></img>
+                    <p class="sub-text">Firefox</p>
+                </div>
+
+                <div class="flex fx-column fx-justify-center fx-align-center">
+                    <img class="browser-img" src="/images/edge.svg" alt="Edge"></img>
+                    <p class="sub-text">Edge</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="root"></div>
+  </body>
+  <script>
+    // Catch global exception. Only used to validate browser support for ReactJS.
+    window.addEventListener('error', handleSyntaxErrorEvent);
+    function handleSyntaxErrorEvent(e) {
+      if (e && e.message == "Syntax error") {
+          console.error("Browser not supported.");
+          document.getElementById("root").style.display = "none";
+          document.getElementById("unsupported-browser").style.display = "flex";
+      }
+    }
+  </script>
+  <script>
+    // Script to validate ReactJS support
+    // Raises an exception when if there is any syntax error.
+    // The exception will be caught by above error event listener.
+    const validateBrowser = () => {
+      return "success";
+    }
+    if (validateBrowser() === "success") {
+      // Remove globel error event listener if all browser tests passed.
+      window.removeEventListener('error', handleSyntaxErrorEvent);
+    }
+  </script>
+</html>
