@@ -19,7 +19,7 @@
   </head>
   <body>
     <noscript>
-      You need to enable javascript.
+      You need to enable JavaScript to run this app.
     </noscript>
     <div id="unsupported-browser" style="display:none;" class="error-container">
         <div class="m-auto">
@@ -58,14 +58,8 @@
   </body>
   <script>
     // Catch global exception. Only used to validate browser support for ReactJS.
-    if (window.addEventListener){
-      window.addEventListener('error', handleSyntaxErrorEvent); 
-    } else if (window.attachEvent){
-      // For IE<10
-      window.attachEvent('onerror', handleSyntaxErrorEvent);
-    }
-    
-    function handleSyntaxErrorEvent(e) {
+    window.onerror = function() {handleSyntaxErrorEvent();}
+    function handleSyntaxErrorEvent() {
       document.getElementById("root").style.display = "none";
       document.getElementById("unsupported-browser").style.display = "flex";
     }
@@ -88,7 +82,7 @@
     }
     if (validateBrowser() === "success") {
       // Remove globel error event listener if all browser tests passed.
-      window.removeEventListener('error', handleSyntaxErrorEvent);
+      window.onerror = undefined;
     }
   </script>
 </html>
