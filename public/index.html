@@ -9,6 +9,7 @@
       name="description"
       content="Show one random picture from Unsplash. Check if ReactJS works on your browser or not."
     />
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">  -->
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/ani-me.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <link rel="stylesheet" href="%PUBLIC_URL%/fonts/sc/sc.css" />
@@ -22,7 +23,7 @@
     </noscript>
     <div id="unsupported-browser" style="display:none;" class="error-container">
         <div class="m-auto">
-            <div class="unsupported-browser-header mb-15">
+            <div class="unsupported-browser-header mb-15 text-center">
                 You are using a browser that is not supported
             </div>
             <div class="sub-text text-center mb-40">
@@ -30,24 +31,24 @@
                 <br />
                 Online Banking experience.
             </div>
-            <div class="supported-browser flex fx-justify-sb fx-align-center">
+            <div class="supported-browser flex fx-justify-sa fx-align-center fx-wrap text-center">
                 <div class="flex fx-column fx-justify-center fx-align-center">
-                    <img class="browser-img" src="/images/safari.svg" alt="Safari"></img>
+                    <img class="browser-img" src="/images/png/safari.png" alt="Safari"></img>
                     <p class="sub-text">Safari</p>
                 </div>
 
                 <div class="flex fx-column fx-justify-center fx-align-center">
-                    <img class="browser-img" src="/images/chrome.svg" alt="Chrome"></img>
+                    <img class="browser-img" src="/images/png/chrome.png" alt="Chrome"></img>
                     <p class="sub-text">Chrome</p>
                 </div>
 
                 <div class="flex fx-column fx-justify-center fx-align-center">
-                    <img class="browser-img" src="/images/firefox.svg" alt="Firefox"></img>
+                    <img class="browser-img" src="/images/png/firefox.png" alt="Firefox"></img>
                     <p class="sub-text">Firefox</p>
                 </div>
 
                 <div class="flex fx-column fx-justify-center fx-align-center">
-                    <img class="browser-img" src="/images/edge.svg" alt="Edge"></img>
+                    <img class="browser-img" src="/images/png/edge.png" alt="Edge"></img>
                     <p class="sub-text">Edge</p>
                 </div>
             </div>
@@ -57,12 +58,18 @@
   </body>
   <script>
     // Catch global exception. Only used to validate browser support for ReactJS.
-    window.addEventListener('error', handleSyntaxErrorEvent);
+    if (window.addEventListener){
+      window.addEventListener('error', handleSyntaxErrorEvent); 
+    } else if (window.attachEvent){
+      // For IE<10
+      window.attachEvent('onerror', handleSyntaxErrorEvent);
+    }
+    
     function handleSyntaxErrorEvent(e) {
-      console.error("Browser not supported.");
       document.getElementById("root").style.display = "none";
       document.getElementById("unsupported-browser").style.display = "flex";
     }
+
   </script>
   <script>
     // Script to validate ReactJS support

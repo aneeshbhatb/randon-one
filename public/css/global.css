@@ -8,6 +8,9 @@ body {
 .flex {
   display: flex;
 }
+.fx-wrap {
+  flex-wrap: wrap;
+}
 .fx-column {
   flex-direction: column;
 }
@@ -16,6 +19,9 @@ body {
 }
 .fx-justify-sb {
   justify-content: space-between;
+}
+.fx-justify-sa {
+  justify-content: space-around;
 }
 .fx-justify-center {
   justify-content: center;
