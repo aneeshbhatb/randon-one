@@ -5,11 +5,11 @@
   color: #3c3c3c;
 }
 .error-container {
-  width: 100vw;
+  width: 100%;
   position: fixed;
   left: 0;
   top: 0;
-  height: 100vh;
+  height: 100%;
   display: flex;
   background: #f8f8f8;
   align-items: center;
@@ -20,6 +20,5 @@
   width: 75px;
 }
 .supported-browser {
-  width: 85%;
   margin: 0 auto;
 }
