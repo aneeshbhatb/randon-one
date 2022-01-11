@@ -23,6 +23,12 @@
   animation: fadein 2s ease-in alternate 1;
   animation-fill-mode: forwards;
 }
+.not-rec-browser {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  font-size: 14px;
+}
 
 @keyframes BnW {
   from { filter: grayscale(1); }

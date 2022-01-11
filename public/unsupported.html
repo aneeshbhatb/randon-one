@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.png" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style rel="stylesheet" type="text/css">
+      @font-face {
+        font-family: SC Prosper Sans Variable;
+        font-style: normal;
+        font-weight: 100 1000;
+        src: url(./fonts/30563f1cbbe92c164a04.30563f1c.woff2) format("woff2"),
+          url(./fonts/00aa6f486bfcc8daf676.00aa6f48.woff) format("woff"),
+          url(./fonts/dc0d3a38f78f195a5e22.dc0d3a38.ttf) format("truetype");
+      }
+      .unsupported-browser-header {
+        font-size: 2em;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        color: #3c3c3c;
+      }
+      .error-container {
+        width: 100%;
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        display: flex;
+        background: #f8f8f8;
+        align-items: center;
+        justify-content: center;
+      }
+      .browser-img {
+        height: 75px;
+        width: 75px;
+      }
+      .supported-browser {
+        margin: 0 auto;
+      }
+
+      body {
+        margin: 0;
+        font-family: "SC Prosper Sans Variable", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .flex {
+        display: flex;
+      }
+      .fx-wrap {
+        flex-wrap: wrap;
+      }
+      .fx-column {
+        flex-direction: column;
+      }
+      .fx-row {
+        flex-direction: row;
+      }
+      .fx-justify-sb {
+        justify-content: space-between;
+      }
+      .fx-justify-sa {
+        justify-content: space-around;
+      }
+      .fx-justify-center {
+        justify-content: center;
+      }
+      .fx-align-center {
+        align-items: center;
+      }
+      .text-center {
+        text-align: center;
+      }
+      .mb-15 {
+        margin-bottom: 15px;
+      }
+      .mb-40 {
+        margin-bottom: 40px;
+      }
+      .sub-text {
+        font-size: 1.2em;
+        color: #8d8d8d;
+        font-weight: 500;
+        text-align: center;
+      }
+      .img-bg {
+        background-image: url("/images/christoph-peich-fWDXz_EpEZ0-unsplash.jpg");
+        background-size: cover;
+        background-attachment: fixed;
+        background-position-y: center;
+      }
+    </style>
+    <title>Unsupported Browser</title>
+  </head>
+  <body>
+    <div id="unsupported-browser" class="error-container">
+      <div class="m-auto">
+        <div class="unsupported-browser-header mb-15 text-center">
+          You are using a browser that is not supported
+        </div>
+        <div class="sub-text text-center mb-40">
+          Please use one of the following browsers to ensure an optimum
+          <br />
+          Online Banking experience.
+        </div>
+        <div
+          class="supported-browser flex fx-justify-sa fx-align-center fx-wrap text-center"
+        >
+          <div class="flex fx-column fx-justify-center fx-align-center">
+            <img
+              class="browser-img"
+              src="/images/png/safari.png"
+              alt="Safari"
+            />
+            <p class="sub-text">Safari</p>
+          </div>
+
+          <div class="flex fx-column fx-justify-center fx-align-center">
+            <img
+              class="browser-img"
+              src="/images/png/chrome.png"
+              alt="Chrome"
+            />
+            <p class="sub-text">Chrome</p>
+          </div>
+
+          <div class="flex fx-column fx-justify-center fx-align-center">
+            <img
+              class="browser-img"
+              src="/images/png/firefox.png"
+              alt="Firefox"
+            />
+            <p class="sub-text">Firefox</p>
+          </div>
+
+          <div class="flex fx-column fx-justify-center fx-align-center">
+            <img class="browser-img" src="/images/png/edge.png" alt="Edge" />
+            <p class="sub-text">Edge</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

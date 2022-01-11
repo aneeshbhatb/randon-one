@@ -21,47 +21,22 @@
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
-    <div id="unsupported-browser" style="display:none;" class="error-container">
-        <div class="m-auto">
-            <div class="unsupported-browser-header mb-15 text-center">
-                You are using a browser that is not supported
-            </div>
-            <div class="sub-text text-center mb-40">
-                Please use one of the following browsers to ensure an optimum
-                <br />
-                Online Banking experience.
-            </div>
-            <div class="supported-browser flex fx-justify-sa fx-align-center fx-wrap text-center">
-                <div class="flex fx-column fx-justify-center fx-align-center">
-                    <img class="browser-img" src="/images/png/safari.png" alt="Safari"></img>
-                    <p class="sub-text">Safari</p>
-                </div>
-
-                <div class="flex fx-column fx-justify-center fx-align-center">
-                    <img class="browser-img" src="/images/png/chrome.png" alt="Chrome"></img>
-                    <p class="sub-text">Chrome</p>
-                </div>
-
-                <div class="flex fx-column fx-justify-center fx-align-center">
-                    <img class="browser-img" src="/images/png/firefox.png" alt="Firefox"></img>
-                    <p class="sub-text">Firefox</p>
-                </div>
-
-                <div class="flex fx-column fx-justify-center fx-align-center">
-                    <img class="browser-img" src="/images/png/edge.png" alt="Edge"></img>
-                    <p class="sub-text">Edge</p>
-                </div>
-            </div>
-        </div>
-    </div>
     <div id="root"></div>
   </body>
   <script>
+    // User-agent test for IE.
+    if  (
+      navigator.userAgent.indexOf("MSIE") !== -1 || 
+      navigator.userAgent.indexOf("trident") !== -1 || 
+      !!document.documentMode
+    ) {
+      window.location.href = "%PUBLIC_URL%/unsupported.html";
+    }
+
     // Catch global exception. Only used to validate browser support for ReactJS.
     window.onerror = function() {handleSyntaxErrorEvent();}
     function handleSyntaxErrorEvent() {
-      document.getElementById("root").style.display = "none";
-      document.getElementById("unsupported-browser").style.display = "flex";
+      window.location.href = "%PUBLIC_URL%/unsupported.html";
     }
 
   </script>
