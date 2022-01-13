@@ -18,46 +18,43 @@
     <title>One</title>
   </head>
   <body>
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
+    <noscript> You need to enable JavaScript to run this app. </noscript>
     <div id="root"></div>
   </body>
   <script>
     // User-agent test for IE.
-    if  (
-      navigator.userAgent.indexOf("MSIE") !== -1 || 
-      navigator.userAgent.indexOf("trident") !== -1 || 
-      !!document.documentMode
-    ) {
-      window.location.href = "%PUBLIC_URL%/unsupported.html";
-    }
+    // if (
+    //   navigator.userAgent.indexOf("MSIE") !== -1 ||
+    //   navigator.userAgent.indexOf("trident") !== -1 ||
+    //   !!document.documentMode
+    // ) {
+    //   window.location.href = "%PUBLIC_URL%/unsupported.html";
+    // }
 
-    // Catch global exception. Only used to validate browser support for ReactJS.
-    window.onerror = function() {handleSyntaxErrorEvent();}
-    function handleSyntaxErrorEvent() {
-      window.location.href = "%PUBLIC_URL%/unsupported.html";
-    }
-
+    // // Catch global exception. Only used to validate browser support for ReactJS.
+    // window.onerror = function () {
+    //   handleSyntaxErrorEvent();
+    // };
+    // function handleSyntaxErrorEvent() {
+    //   window.location.href = "%PUBLIC_URL%/unsupported.html";
+    // }
   </script>
   <script>
-    // Script to validate ReactJS support
-    // Raises an exception when if there is any syntax error.
-    // The exception will be caught by above error event listener.
-    const validateBrowser = () => {
-      // run different new JS feature test:
-      // arrow functions, spread operator and forEach method and 
-      // let keyword are not supported in older browsers.
-      let statusStr = "";
-      let testArr = [+ new Date()];
-      [1, ...testArr].forEach(item => {
-        statusStr = "success";
-      });
-      return statusStr;
-    }
-    if (validateBrowser() === "success") {
+    // Check for ES5 support in the browser.
+    // 'use strict' is one of the last ES5 feature incorporated by the older browsers.
+    function isBrowserSupported() {
+      return (function () {
+        "use strict";
+        return Function.prototype.bind && !this;
+      })();
+    };
+    if (isBrowserSupported()) {
       // Remove globel error event listener if all browser tests passed.
-      window.onerror = undefined;
+      // window.onerror = undefined;
+      alert("Browser is supported");
+    } else {
+      alert("Browser is not supported");
+      window.location.href = "%PUBLIC_URL%/unsupported.html";
     }
   </script>
 </html>
