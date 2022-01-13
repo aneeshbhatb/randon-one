@@ -23,37 +23,24 @@
   </body>
   <script>
     // User-agent test for IE.
-    // if (
-    //   navigator.userAgent.indexOf("MSIE") !== -1 ||
-    //   navigator.userAgent.indexOf("trident") !== -1 ||
-    //   !!document.documentMode
-    // ) {
-    //   window.location.href = "%PUBLIC_URL%/unsupported.html";
-    // }
-
-    // // Catch global exception. Only used to validate browser support for ReactJS.
-    // window.onerror = function () {
-    //   handleSyntaxErrorEvent();
-    // };
-    // function handleSyntaxErrorEvent() {
-    //   window.location.href = "%PUBLIC_URL%/unsupported.html";
-    // }
+    if (
+      navigator.userAgent.indexOf("MSIE") !== -1 ||
+      navigator.userAgent.indexOf("trident") !== -1 ||
+      !!document.documentMode
+    ) {
+      window.location.href = "%PUBLIC_URL%/unsupported.html";
+    }
   </script>
   <script>
-    // Check for ES5 support in the browser.
-    // 'use strict' is one of the last ES5 feature incorporated by the older browsers.
-    function isBrowserSupported() {
-      return (function () {
-        "use strict";
-        return Function.prototype.bind && !this;
-      })();
-    };
-    if (isBrowserSupported()) {
-      // Remove globel error event listener if all browser tests passed.
-      // window.onerror = undefined;
-      alert("Browser is supported");
-    } else {
-      alert("Browser is not supported");
+    try {
+      // forEach on Set is not supported by older browsers, but it is a valid method of ES6.
+      // Also check if Array has "includes" method.
+      if (!(Set && Set.prototype && Set.prototype.forEach) || !(Array.prototype.includes)) {
+        // If browser is not supported, throw an error
+        throw new Error("UnSupportedBrowser");
+      }
+    } catch(e) {
+      // Catch browser check error and redirect to unsupported browser page.
       window.location.href = "%PUBLIC_URL%/unsupported.html";
     }
   </script>
